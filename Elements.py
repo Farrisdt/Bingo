@@ -1,3 +1,26 @@
+#!/usr/bin/env python
+'''Items required for StardewBingo'''
+
+class Item:
+    '''An item that can be collected from stardew'''
+    def __init__(self, type: str):
+        self.type = type
+class Challenge:
+    '''Bingo goal'''
+    def __init__(self, difficulty: int, ginger_island: bool=False):
+        '''Difficulty is on a scale of 1 to 4, with 1 being easy and 4 being late game. Ginger_island is set to true for content that requires access to ginger island.'''
+        ## Data ##
+        self.diff = difficulty
+        self.gi = Ginger_island
+
+    ## Methods ##
+    def generate_number(self):
+        '''For Challenges Requireing Numbers'''
+        number = (randrange(9)+1)*5
+        return(number)
+
+
+### Elements ###
 flowers = ["Blue Jazz", "Tulip", "Poppy", "Summer Spangle", "Fairy Rose", "Sunflower"]
 foreged_flowers = ["Sweet Pea", "Crocus"]
 
