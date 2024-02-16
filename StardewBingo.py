@@ -4,10 +4,18 @@ Contents are decicated to videogame Stardew Valley.'''
 from random import randrange, choice
 impoty Elements
 
+item_types = ["crop", "forigable", "fish", "gem", "mineral", "food", "tree"]
+subtype = ["flower", "fruit", "vegitable", "ocean", "lake", "river", "beach"]
+season = ["spring", "summer", "fall", "winter"]
+
 class Item:
     '''An item that can be collected from stardew'''
-    def __init__(self, type: str):
+    def __init__(self, type: str, subtype: str = NA, season: str = NA, artisan: bool):
+        '''Type is the category of item from the item_types list. Subtype is only app;icable to some items (ie. ocean in fish or fruit in foregable). Only harvestable items have a season. Artisan is set to true if item can be used to make goods in kegs or preserves jars.'''
         self.type = type
+        self.subtype = subtype
+        self.season = season
+        self.artisan = artisan
 class Challenge:
     '''Bingo goal'''
     def __init__(self, difficulty: int, ginger_island: bool=False):
@@ -16,11 +24,6 @@ class Challenge:
         self.diff = difficulty
         self.gi = Ginger_island
 
-    ## Methods ##
-    def generate_number(self):
-        '''For Challenges Requireing Numbers'''
-        number = (randrange(9)+1)*5
-        return(number)
 
 
 bingo_list = []
